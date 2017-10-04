@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body{
+
+}
+
+h1, h2, p{
+	font-family: Montserrat;
+}
+
+.header-container{
+	text-align: center;
+}
+
+.footer-container{
+	text-align: center;
+}
+
+.content-container{
+
+}
