@@ -1,12 +1,74 @@
 <?php 
 
-function blank_theme_scripts() {
+define ('TMPL_DIR', get_template_directory_uri());
+
+function eco_setup() {
+    load_theme_textdomain('eco_setup');
+    add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
+
+   add_theme_support('html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption'
+    ));
+}
+add_action('after_setup_theme', 'eco_setup');
+
+function vector8_scripts() {
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', ['jquery'], '', true);
-	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js', [], '', true);
+	wp_enqueue_script( 'scrollup', get_template_directory_uri() . '/assets/js/scrollup.js', [], '', true);
+	wp_enqueue_script( 'parallax-section', get_template_directory_uri() . '/assets/js/parallax-section.js', [], '', true);
+	wp_enqueue_script( 'jssocials', get_template_directory_uri() . '/assets/js/jssocials.min.js', [], '', true);
+	wp_enqueue_script( 'share-buttons', get_template_directory_uri() . '/assets/js/share-buttons.js', [], '', true);
+	wp_enqueue_script( 'main-carousel', get_template_directory_uri() . '/assets/js/main-carousel.js', [], '', true);
+	wp_enqueue_script( 'jquery.filterizr', get_template_directory_uri() . '/assets/js/jquery.filterizr.min.js', [], '', true);
+	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/assets/js/lightbox.min.js', [], '', true);
 
 
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
 	wp_enqueue_style( 'custom-css', get_template_directory_uri() . '/assets/css/custom.css');
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css');
+	wp_enqueue_style( 'jssocials', get_template_directory_uri() . '/assets/css/jssocials.css');
+	wp_enqueue_style( 'jssocials-theme-flat', get_template_directory_uri() . '/assets/css/jssocials-theme-flat.css');
+	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/assets/css/lightbox.min.css');
 }
 
-add_action( 'wp_enqueue_scripts', 'blank_theme_scripts' );
+function register_post_types(){
+	register_post_type('offers', array(
+		'label'  => null,
+		'labels' => array(
+			'name'               => 'Offers',
+			'singular_name'      => 'Offer',
+			'add_new'            => 'Add offer',
+			'add_new_item'       => 'Add new offer',
+			'edit_item'          => 'Edit offer',
+			'new_item'           => 'New offer',
+			'view_item'          => 'View offer',
+			'search_items'       => 'Find offer',
+			'not_found'          => 'Not found',
+			'not_found_in_trash' => 'Not found in trash',
+			'menu_name'          => 'Offers',
+		),
+		'public' => true,
+        'show_ui' => true, // показывать интерфейс в админке
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-format-aside', // иконка в меню
+        'menu_position' => 20, // порядок в меню
+        'supports' => array( 'title', 'editor', 'thumbnail')
+	) );
+}
+
+
+
+add_action( 'init', 'register_post_types' );
+add_action( 'wp_enqueue_scripts', 'vector8_scripts' );
+
+
+
+register_nav_menus( array(
+	'header_menu' => 'Header Menu',
+) );
