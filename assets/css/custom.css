@@ -481,6 +481,9 @@ section {
   #main-services .content-container {
     padding-top: 40px;
     padding-bottom: 60px; }
+    #main-services .content-container .article {
+      padding-right: 10px;
+      padding-left: 0; }
     #main-services .content-container h1 {
       font-weight: 600;
       font-size: 40px;
@@ -514,7 +517,8 @@ section {
     padding-top: 50px;
     padding-bottom: 50px; }
     #services-tricolumn .content-container .article {
-      padding: 0 10px 0 10px; }
+      padding-right: 10px;
+      padding-left: 10px; }
     #services-tricolumn .content-container h1 {
       font-weight: 600;
       font-size: 40px;
@@ -711,54 +715,38 @@ section {
   #faqs-section .share-buttons {
     padding: 0 15px 0 15px; }
 
-#comments {
+/////////  COMMENTS  //////////////////////////
+
+.comments {
+    background-image: url(../img/offer-bg.png); }
+    .comments .content-container{
+
+    }
+}
+
+.commentlist{
   background-image: url(../img/offer-bg.png); }
-  #comments .content-container {
-    padding: 20px 25px 50px 25px; }
-    #comments .content-container h1 {
-      color: #353E43;
-      font-weight: 600;
-      font-size: 40px;
-      margin-bottom: 10px; }
-    #comments .content-container h2 {
-      color: #353E43;
-      font-size: 14px; }
-    #comments .content-container p {
-      font-size: 14px; }
-    #comments .content-container input {
-      width: 100%; }
-    #comments .content-container textarea {
-      width: 100%;
-      resize: none; }
-    #comments .content-container .short-section {
-      padding-left: 0;
-      padding-right: 40px;
-      margin-bottom: 10px; }
-    #comments .content-container .main-section {
-      padding: 0 0 0 0;
-      margin-bottom: 20px; }
-    #comments .content-container .terms {
-      padding-left: 0px; }
-      #comments .content-container .terms input {
-        width: auto;
-        float: left; }
-        #comments .content-container .terms input:hover {
-          cursor: pointer; }
-      #comments .content-container .terms p {
-        margin-left: 20px; }
-      #comments .content-container .terms a {
-        color: #353E43;
-        text-decoration: none;
-        font-size: 14px; }
-        #comments .content-container .terms a:hover {
-          color: #9d89c1; }
-    #comments .content-container .submit-button {
-      padding-right: 0px;
-      text-align: right; }
-    #comments .content-container .comments-recent {
-      padding: 20px 0 40px 0; }
-      #comments .content-container .comments-recent h1 {
-        margin-bottom: 30px; }
+    .commentlist .content-container{
+
+    }
+}
+
+.comment-navigation{
+  background-image: url(../img/offer-bg.png); }
+    .comment-navigation .content-container{
+
+    }
+}
+
+.respond{
+  background-image: url(../img/offer-bg.png); }
+    .respond .content-container{
+
+    }
+}
+
+
+/////////////////////////////////////////////
 
 #history {
   background-image: url(../img/offer-bg.png); }

@@ -17,5 +17,9 @@
     <div class="container share-buttons">
         <div id="share-btns"></div>
     </div>
+
+    <?php 
+        comments_template();
+    ?>
 </section>
 <?php get_footer(); ?>

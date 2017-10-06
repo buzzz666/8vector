@@ -70,8 +70,8 @@
           $i++;
           endwhile;
           endif;
-        wp_reset_postdata();
-      ?>
+          wp_reset_postdata();
+        ?>
       </div>
     </section>
     <section id="parallax-section">

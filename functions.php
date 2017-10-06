@@ -37,7 +37,7 @@ function vector8_scripts() {
 	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/assets/css/lightbox.min.css');
 }
 
-function register_post_types(){
+function register_offers_post_types(){
 	register_post_type('offers', array(
 		'label'  => null,
 		'labels' => array(
@@ -58,16 +58,96 @@ function register_post_types(){
         'has_archive' => true,
         'menu_icon' => 'dashicons-format-aside', // иконка в меню
         'menu_position' => 20, // порядок в меню
-        'supports' => array( 'title', 'editor', 'thumbnail')
+        'supports' => array( 'title', 'editor', 'comments', 'thumbnail')
 	) );
 }
 
+function register_services_post_types(){
+	register_post_type('services', array(
+		'label'  => null,
+		'labels' => array(
+			'name'               => 'Services',
+			'singular_name'      => 'Service',
+			'add_new'            => 'Add service',
+			'add_new_item'       => 'Add new service',
+			'edit_item'          => 'Edit service',
+			'new_item'           => 'New service',
+			'view_item'          => 'View service',
+			'search_items'       => 'Find service',
+			'not_found'          => 'Not found',
+			'not_found_in_trash' => 'Not found in trash',
+			'menu_name'          => 'Services',
+		),
+		'public' => true,
+        'show_ui' => true, // показывать интерфейс в админке
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-format-aside', // иконка в меню
+        'menu_position' => 20, // порядок в меню
+        'supports' => array( 'title', 'editor', 'comments', 'thumbnail')
+	) );
+}
+
+function print_services( $atts, $content = null ){
+	extract(shortcode_atts(array(
+    	"colls" => '1',
+    	"order" => 'ASC',
+    	"textlen" => '30', 
+ 	), $atts));
+
+	$args = array(
+		'post_type' => 'services',
+		'posts_per_page' => $colls,
+		'order' => $order,
+	);
+
+	$class = 12/$colls;
+	if ($colls == 1)
+		$bgID = 'main-services';
+	else
+		$bgID = 'services-tricolumn';
+	
+	$result = '<div id="'.$bgID.'">
+				<div class="container content-container">';	
+
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+
+			$result .= '
+						<div class="col-sm-'.$class.' article">
+							<h1>
+							    '.get_the_title().'
+							</h1>
+							<h2>
+							  	'.get_field("subtitle").'
+							</h2>
+							<p>
+								'.wp_trim_words( get_the_content(), $textlen, ' ...' ).'
+							</p>
+							<a href="'.get_the_permalink().'">more 
+							    <i class="fa fa-chevron-circle-right"></i>
+							</a>
+					    </div>	
+			            ';
+		}
+		$result .= '</div>	
+				</div>';
+		return $result;
+	} 
+	else {
+		
+	}
+    wp_reset_query();
+    return html_entity_decode($result);
+}
 
 
-add_action( 'init', 'register_post_types' );
+add_action( 'init', 'register_offers_post_types' );
+add_action( 'init', 'register_services_post_types' );
 add_action( 'wp_enqueue_scripts', 'vector8_scripts' );
 
-
+add_shortcode('services', 'print_services');
 
 register_nav_menus( array(
 	'header_menu' => 'Header Menu',
