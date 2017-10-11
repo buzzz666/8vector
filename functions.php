@@ -1,6 +1,9 @@
 <?php 
 
 define ('TMPL_DIR', get_template_directory_uri());
+define ('TEMPLATE_ROOT', get_template_directory());
+
+include_once (TEMPLATE_ROOT.'/ajax.php');
 
 function eco_setup() {
     load_theme_textdomain('eco_setup');
@@ -20,6 +23,11 @@ add_action('after_setup_theme', 'eco_setup');
 
 function vector8_scripts() {
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', ['jquery'], '', true);
+	wp_localize_script( 'bootstrap', 'myajax', 
+		array(
+			'url' => admin_url('admin-ajax.php')
+		)
+	);  
 	wp_enqueue_script( 'scrollup', get_template_directory_uri() . '/assets/js/scrollup.js', [], '', true);
 	wp_enqueue_script( 'parallax-section', get_template_directory_uri() . '/assets/js/parallax-section.js', [], '', true);
 	wp_enqueue_script( 'jssocials', get_template_directory_uri() . '/assets/js/jssocials.min.js', [], '', true);
@@ -27,6 +35,7 @@ function vector8_scripts() {
 	wp_enqueue_script( 'main-carousel', get_template_directory_uri() . '/assets/js/main-carousel.js', [], '', true);
 	wp_enqueue_script( 'jquery.filterizr', get_template_directory_uri() . '/assets/js/jquery.filterizr.min.js', [], '', true);
 	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/assets/js/lightbox.min.js', [], '', true);
+
 
 
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');

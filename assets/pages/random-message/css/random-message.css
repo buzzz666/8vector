@@ -1,0 +1,41 @@
+#random-message {
+	background-color: #fff;
+}
+
+.message{
+	text-align: center;
+	padding: 30px;
+}
+
+.send-button{
+	width: 200px;
+	line-height: 40px;
+	background-image: url(../img/green-bg.png);
+	background-color: transparent;
+	border-color: #A96CC4;
+	position: relative;
+}
+
+.send-button:hover{
+	border-color: #fff;
+}
+
+.action-button{
+	width: 50%;
+	background-color: #000;
+}
+
+.image{
+	display: none;
+	position: absolute;
+	top: 15px;
+	left: 65%;
+}
+
+.image img{
+	height: 20px;
+}
+
+.enable{
+	display: inline-block;
+}
