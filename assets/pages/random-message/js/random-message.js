@@ -1,10 +1,12 @@
 jQuery(document).ready(function($) {
 	var data = {
 		action: 'get_message',
-		whatever: 1234
+		lang: 'eng'
 	};
 
 	$( ".send-button" ).click(function() {
+		data.lang = $(this).attr('data-lg');
+
 		$.ajax({
 		    type: 'POST',
 		    url: myajax.url,
@@ -18,9 +20,9 @@ jQuery(document).ready(function($) {
 		    },
 		    success: function(data) {
 		        var data = JSON.parse(data);
-
 				console.log(data);
-				$('.result').html(data.message);
+				$('.result-textarea').val(data.message);
+
 		    },
 		    error: function() {
 		    	console.log('error');

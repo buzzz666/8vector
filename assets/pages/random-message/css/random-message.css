@@ -2,14 +2,15 @@
 	background-color: #fff;
 }
 
-.message{
+.message-control{
 	text-align: center;
-	padding: 30px;
+	padding: 10px;
 }
 
 .send-button{
-	width: 200px;
+	width: 203px;
 	line-height: 40px;
+	margin: 5px 5px;
 	background-image: url(../img/green-bg.png);
 	background-color: transparent;
 	border-color: #A96CC4;
@@ -38,4 +39,21 @@
 
 .enable{
 	display: inline-block;
+}
+
+.result{
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.result-textarea{
+	margin-top: 20px;
+	resize: none;
+}
+
+.spinner{
+	position: absolute;
+	left: 49%;
+	top: 60px;
 }
