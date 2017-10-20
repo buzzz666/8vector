@@ -22,7 +22,6 @@ jQuery(document).ready(function($) {
 		        var data = JSON.parse(data);
 				console.log(data);
 				$('.result-textarea').val(data.message);
-
 		    },
 		    error: function() {
 		    	console.log('error');

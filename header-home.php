@@ -35,7 +35,7 @@
           <nav class="navbar navbar-inverse">
             <div class="container">
               <div class="col-md-4 col-sm-12 logotype">
-                <div class="navbar-header">              <a class="navbar-brand" href="index-page.html"><img src= '<?php echo TMPL_DIR ?>/assets/img/logo.png' ?></a></div>
+                <div class="navbar-header">              <a class="navbar-brand" href="/"><img src= '<?php echo TMPL_DIR ?>/assets/img/logo.png' ?></a></div>
               </div>
               <div class="col-md-8 col-sm-12 navigation">
                 <?php 

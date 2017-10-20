@@ -5,6 +5,7 @@ define ('TEMPLATE_ROOT', get_template_directory());
 
 include_once (TEMPLATE_ROOT.'/ajax.php');
 
+
 function eco_setup() {
     load_theme_textdomain('eco_setup');
     add_theme_support('title-tag');
@@ -150,13 +151,13 @@ function print_services( $atts, $content = null ){
     wp_reset_query();
     return html_entity_decode($result);
 }
+add_shortcode('services', 'print_services');
 
 
 add_action( 'init', 'register_offers_post_types' );
 add_action( 'init', 'register_services_post_types' );
 add_action( 'wp_enqueue_scripts', 'vector8_scripts' );
 
-add_shortcode('services', 'print_services');
 
 register_nav_menus( array(
 	'header_menu' => 'Header Menu',
